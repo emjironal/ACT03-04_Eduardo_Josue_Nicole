@@ -6,6 +6,7 @@
 package view;
 
 import controller.Controlador;
+import controller.DTOFarmacia;
 import javax.swing.table.DefaultTableModel;
 import model.Producto;
 
@@ -16,8 +17,9 @@ import model.Producto;
  */
 public class FrmCatalogos extends javax.swing.JFrame {
 
-    
+  
     private Controlador elCtrl = Controlador.getInstance();
+    private DTOFarmacia dtoFarmacia;
     
     
     /**
@@ -26,6 +28,7 @@ public class FrmCatalogos extends javax.swing.JFrame {
     public FrmCatalogos() {
         initComponents();
         cargaTablaProductos();
+        dtoFarmacia = new DTOFarmacia();
     }
 
     private void cargaTablaProductos(){
@@ -68,16 +71,18 @@ public class FrmCatalogos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableFarmacias = new javax.swing.JTable();
         lbTablaFarmaciasDisponibles = new javax.swing.JLabel();
-        lbNombreFarmacia = new javax.swing.JLabel();
+        lbDescripcionFarmacia = new javax.swing.JLabel();
         lbTituloFarmacias = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        txtNombreFarmacia = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        txtCantonFarmacia = new javax.swing.JTextField();
-        btnAceptar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
+        txtDescripcionFarmacia = new javax.swing.JTextField();
+        lbTelefonoFarmacia = new javax.swing.JLabel();
+        txtTelefonoFarmacia = new javax.swing.JTextField();
+        btnRegistrarFarmacia = new javax.swing.JButton();
+        btnConsultarFarmacia = new javax.swing.JButton();
+        lbCodigoFarmacia = new javax.swing.JLabel();
+        txtCodigoFarmacia = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -161,7 +166,7 @@ public class FrmCatalogos extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addComponent(btnConsultar))
                     .addComponent(jScrollPane2))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         panelProductosLayout.setVerticalGroup(
             panelProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +211,7 @@ public class FrmCatalogos extends javax.swing.JFrame {
         lbTablaFarmaciasDisponibles.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbTablaFarmaciasDisponibles.setText("Tabla de farmacias disponibles");
 
-        lbNombreFarmacia.setText("Nombre");
+        lbDescripcionFarmacia.setText("Descripción");
 
         lbTituloFarmacias.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lbTituloFarmacias.setText("Farmacias");
@@ -214,49 +219,62 @@ public class FrmCatalogos extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setText("Crear farmacia");
 
-        txtNombreFarmacia.addActionListener(new java.awt.event.ActionListener() {
+        txtDescripcionFarmacia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreFarmaciaActionPerformed(evt);
+                txtDescripcionFarmaciaActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Canton");
+        lbTelefonoFarmacia.setText("Teléfono");
 
-        btnAceptar.setText("Aceptar");
+        btnRegistrarFarmacia.setText("Registrar");
+        btnRegistrarFarmacia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarFarmaciaActionPerformed(evt);
+            }
+        });
 
-        btnCancelar.setText("Cancelar");
+        btnConsultarFarmacia.setText("Consultar");
+
+        lbCodigoFarmacia.setText("Código");
+
+        txtCodigoFarmacia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoFarmaciaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
             .addComponent(jSeparator1)
             .addComponent(jSeparator2)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lbTablaFarmaciasDisponibles))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lbCodigoFarmacia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbTelefonoFarmacia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbDescripcionFarmacia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(49, 49, 49)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtTelefonoFarmacia, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                                    .addComponent(txtDescripcionFarmacia)
+                                    .addComponent(txtCodigoFarmacia))
+                                .addGap(40, 40, 40)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lbNombreFarmacia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(49, 49, 49)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtNombreFarmacia)
-                                            .addComponent(txtCantonFarmacia, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(btnRegistrarFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnConsultarFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbTablaFarmaciasDisponibles))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(260, 260, 260)
                         .addComponent(lbTituloFarmacias)))
@@ -271,18 +289,21 @@ public class FrmCatalogos extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNombreFarmacia)
-                    .addComponent(txtNombreFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtCodigoFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbCodigoFarmacia)
+                    .addComponent(btnRegistrarFarmacia))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnConsultarFarmacia)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbDescripcionFarmacia)
+                        .addComponent(txtDescripcionFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCantonFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAceptar)
-                    .addComponent(btnCancelar))
+                    .addComponent(txtTelefonoFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTelefonoFarmacia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -341,9 +362,18 @@ public class FrmCatalogos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnConsultarActionPerformed
 
-    private void txtNombreFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreFarmaciaActionPerformed
+    private void txtCodigoFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoFarmaciaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreFarmaciaActionPerformed
+    }//GEN-LAST:event_txtCodigoFarmaciaActionPerformed
+
+    private void btnRegistrarFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarFarmaciaActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_btnRegistrarFarmaciaActionPerformed
+
+    private void txtDescripcionFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionFarmaciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDescripcionFarmaciaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -381,11 +411,10 @@ public class FrmCatalogos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnConsultarFarmacia;
+    private javax.swing.JButton btnRegistrarFarmacia;
     private javax.swing.JButton btnRegistrarPrd;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -394,8 +423,10 @@ public class FrmCatalogos extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lbNombreFarmacia;
+    private javax.swing.JLabel lbCodigoFarmacia;
+    private javax.swing.JLabel lbDescripcionFarmacia;
     private javax.swing.JLabel lbTablaFarmaciasDisponibles;
+    private javax.swing.JLabel lbTelefonoFarmacia;
     private javax.swing.JLabel lbTituloFarmacias;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblDescripcion;
@@ -404,10 +435,11 @@ public class FrmCatalogos extends javax.swing.JFrame {
     private javax.swing.JPanel panelProductos;
     private javax.swing.JSpinner spUnidades;
     private javax.swing.JTable tableFarmacias;
-    private javax.swing.JTextField txtCantonFarmacia;
+    private javax.swing.JTextField txtCodigoFarmacia;
     private javax.swing.JTextField txtCodigoPrd;
     private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtNombreFarmacia;
+    private javax.swing.JTextField txtDescripcionFarmacia;
     private javax.swing.JTextField txtPuntos;
+    private javax.swing.JTextField txtTelefonoFarmacia;
     // End of variables declaration//GEN-END:variables
 }
