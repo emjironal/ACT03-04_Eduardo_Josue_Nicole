@@ -6,6 +6,8 @@
 package controller;
 
 import java.util.List;
+import javax.swing.JOptionPane;
+import model.Cliente;
 import model.Producto;
 
 /**
@@ -14,18 +16,38 @@ import model.Producto;
  */
 public class Controlador {
 
+    private static Controlador instance;
     private DTOProductos dTOProductos;
     private GestorProductos gProductos;
+    private GestorCliente gCliente;
     
-    public Controlador() {
+    private Controlador() {
         gProductos = new GestorProductos();
         dTOProductos = new DTOProductos();
+        gCliente = new GestorCliente();
+    }
+    
+    
+    public static Controlador getInstance(){
+        if(instance == null){
+            instance = new Controlador();
+        }
+        return instance;
     }
 
     public DTOProductos getdTOProductos() {
         return dTOProductos;
     }
     
+    public boolean registrarCliente(Cliente c){
+        if(gCliente.crearCliente(c)){
+            JOptionPane.showMessageDialog(null, "Registro", "El registro fue exitoso", JOptionPane.WARNING_MESSAGE);
+            return true;
+        }else{
+            JOptionPane.showMessageDialog(null, "Registro", "El cliente ya existe", JOptionPane.WARNING_MESSAGE);
+        }
+        return false;
+    }
     
     public boolean registrarProducto(int codigo, String descripcion, int unidades, int puntos){
         return true;
