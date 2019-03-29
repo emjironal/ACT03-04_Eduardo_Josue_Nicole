@@ -79,7 +79,7 @@
                           </Group>
                           <Component id="jScrollPane2" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="30" max="32767" attributes="0"/>
+                      <EmptySpace pref="40" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -197,41 +197,39 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" alignment="1" pref="648" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="1" pref="645" max="32767" attributes="0"/>
                   <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
                   <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lbTablaFarmaciasDisponibles" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="lbCodigoFarmacia" max="32767" attributes="0"/>
+                                          <Component id="lbTelefonoFarmacia" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbDescripcionFarmacia" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="49" pref="49" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="txtTelefonoFarmacia" alignment="1" pref="186" max="32767" attributes="0"/>
+                                          <Component id="txtDescripcionFarmacia" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="txtCodigoFarmacia" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="lbNombreFarmacia" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="txtNombreFarmacia" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txtCantonFarmacia" alignment="0" pref="166" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="btnCancelar" min="-2" pref="81" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="btnAceptar" min="-2" pref="81" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="btnRegistrarFarmacia" min="-2" pref="90" max="-2" attributes="0"/>
+                                          <Component id="btnConsultarFarmacia" min="-2" pref="90" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lbTablaFarmaciasDisponibles" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
@@ -251,20 +249,24 @@
                       <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbNombreFarmacia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtNombreFarmacia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCodigoFarmacia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbCodigoFarmacia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnRegistrarFarmacia" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCantonFarmacia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnConsultarFarmacia" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lbDescripcionFarmacia" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDescripcionFarmacia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnAceptar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTelefonoFarmacia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbTelefonoFarmacia" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
@@ -306,9 +308,9 @@
                 <Property name="text" type="java.lang.String" value="Tabla de farmacias disponibles"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lbNombreFarmacia">
+            <Component class="javax.swing.JLabel" name="lbDescripcionFarmacia">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nombre"/>
+                <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lbTituloFarmacias">
@@ -331,27 +333,40 @@
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator2">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtNombreFarmacia">
+            <Component class="javax.swing.JTextField" name="txtDescripcionFarmacia">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreFarmaciaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDescripcionFarmaciaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="lbTelefonoFarmacia">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Canton"/>
+                <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtCantonFarmacia">
+            <Component class="javax.swing.JTextField" name="txtTelefonoFarmacia">
             </Component>
-            <Component class="javax.swing.JButton" name="btnAceptar">
+            <Component class="javax.swing.JButton" name="btnRegistrarFarmacia">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Aceptar"/>
+                <Property name="text" type="java.lang.String" value="Registrar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarFarmaciaActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnConsultarFarmacia">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Consultar"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnCancelar">
+            <Component class="javax.swing.JLabel" name="lbCodigoFarmacia">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
+                <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtCodigoFarmacia">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoFarmaciaActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
