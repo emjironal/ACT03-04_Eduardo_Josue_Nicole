@@ -21,6 +21,9 @@ public class Controlador {
     private GestorProductos gProductos;
     private GestorCliente gCliente;
     private GestorFarmacia gFarmacia;
+    private FacturaFactory factory;
+    private DTOFarmacia dTOFarmacias;
+    private GestorFacturas gFacturas;
     
     private Controlador()
     {
@@ -28,6 +31,9 @@ public class Controlador {
         dTOProductos = new DTOProductos();
         gCliente = new GestorCliente();
         gFarmacia = new GestorFarmacia();
+        factory = new FacturaFactory();
+        dTOFarmacias = new DTOFarmacia();
+        gFacturas = new GestorFacturas();
     }
     
     
@@ -102,5 +108,22 @@ public class Controlador {
         dTOProductos.setUnProducto(elPrd);
         return elPrd!=null;
         
+    }
+    
+    public void recuperarFarmacias(){
+        dTOFarmacias.setListaFarmacias((List)gFarmacia.recuperar());
+    }
+
+    public FacturaFactory getFactory() {
+        return factory;
+    }
+    
+    public DTOFarmacia getdTOFarmacias(){
+        return dTOFarmacias;
+    }
+    
+    public boolean registrarFactura(){
+        gFacturas.registrarFactura(factory.getUnaFactura());
+        return true;
     }
 }
