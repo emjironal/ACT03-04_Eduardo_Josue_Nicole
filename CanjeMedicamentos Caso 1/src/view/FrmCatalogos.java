@@ -376,6 +376,8 @@ public class FrmCatalogos extends javax.swing.JFrame {
         String descripcion = this.txtDescripcionFarmacia.getText();
         String telefono = this.txtTelefonoFarmacia.getText();
         dtoFarmacia.getUnaFarmacia().setCodigo(codigo);
+        dtoFarmacia.getUnaFarmacia().setDescripcion(descripcion);
+        dtoFarmacia.getUnaFarmacia().setTelefono(telefono);
         elCtrl.registrarFarmacia(dtoFarmacia);
     }//GEN-LAST:event_btnRegistrarFarmaciaActionPerformed
 
@@ -395,7 +397,7 @@ public class FrmCatalogos extends javax.swing.JFrame {
         }
         else
         {
-            this.txtCodigoFarmacia.setText("" + codigo);
+            this.txtCodigoFarmacia.setText(((Integer)codigo).toString());
             this.txtDescripcion.setText(dtoFarmacia.getUnaFarmacia().getDescripcion());
             this.txtTelefonoFarmacia.setText(dtoFarmacia.getUnaFarmacia().getTelefono());
         }
