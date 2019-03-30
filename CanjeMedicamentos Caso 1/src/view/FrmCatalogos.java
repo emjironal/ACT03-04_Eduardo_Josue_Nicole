@@ -19,7 +19,7 @@ public class FrmCatalogos extends javax.swing.JFrame {
 
   
     private Controlador elCtrl = Controlador.getInstance();
-    private DTOFarmacia dtoFarmacia;
+    private DTOFarmacia dtoFarmacia = new DTOFarmacia();
     
     
     /**
@@ -28,7 +28,6 @@ public class FrmCatalogos extends javax.swing.JFrame {
     public FrmCatalogos() {
         initComponents();
         cargaTablaProductos();
-        dtoFarmacia = new DTOFarmacia();
     }
 
     private void cargaTablaProductos(){
@@ -190,7 +189,7 @@ public class FrmCatalogos extends javax.swing.JFrame {
                     .addComponent(btnConsultar))
                 .addGap(51, 51, 51)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Productos", panelProductos);
@@ -235,6 +234,11 @@ public class FrmCatalogos extends javax.swing.JFrame {
         });
 
         btnConsultarFarmacia.setText("Consultar");
+        btnConsultarFarmacia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarFarmaciaActionPerformed(evt);
+            }
+        });
 
         lbCodigoFarmacia.setText("Código");
 
@@ -378,6 +382,24 @@ public class FrmCatalogos extends javax.swing.JFrame {
     private void txtDescripcionFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionFarmaciaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescripcionFarmaciaActionPerformed
+
+    private void btnConsultarFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarFarmaciaActionPerformed
+        // TODO add your handling code here:
+        int codigo = Integer.parseInt(this.txtCodigoFarmacia.getText());
+        dtoFarmacia.getUnaFarmacia().setCodigo(codigo);
+        elCtrl.consultar(dtoFarmacia);
+        if(dtoFarmacia.getUnaFarmacia() == null)
+        {
+            dtoFarmacia.resetFarmacia();
+            this.txtDescripcionFarmacia.setText("No se encontró");
+        }
+        else
+        {
+            this.txtCodigoFarmacia.setText("" + codigo);
+            this.txtDescripcion.setText(dtoFarmacia.getUnaFarmacia().getDescripcion());
+            this.txtTelefonoFarmacia.setText(dtoFarmacia.getUnaFarmacia().getTelefono());
+        }
+    }//GEN-LAST:event_btnConsultarFarmaciaActionPerformed
 
     /**
      * @param args the command line arguments

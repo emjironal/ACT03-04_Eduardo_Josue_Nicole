@@ -28,7 +28,7 @@ public class GestorFarmacia
     
     public Farmacia consulta(int codigo)
     {
-        return (Farmacia)daoFarmacia.recuperar(codigo);
+        return ((Farmacia)daoFarmacia.recuperar(codigo));
     }
     
     public boolean registrar(Farmacia pFarmacia)

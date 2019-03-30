@@ -23,6 +23,11 @@ public class DTOFarmacia
         unaFarmacia = new Farmacia();
     }
     
+    public void resetFarmacia()
+    {
+        unaFarmacia = new Farmacia();
+    }
+    
     public void setUnaFarmacia(Farmacia pFarmacia)
     {
         unaFarmacia = pFarmacia;
