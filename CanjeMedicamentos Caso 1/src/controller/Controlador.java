@@ -20,22 +20,55 @@ public class Controlador {
     private DTOProductos dTOProductos;
     private GestorProductos gProductos;
     private GestorCliente gCliente;
+    private GestorFarmacia gFarmacia;
     
-    private Controlador() {
+    private Controlador()
+    {
         gProductos = new GestorProductos();
         dTOProductos = new DTOProductos();
         gCliente = new GestorCliente();
+        gFarmacia = new GestorFarmacia();
     }
     
     
-    public static Controlador getInstance(){
+    public static Controlador getInstance()
+    {
         if(instance == null){
             instance = new Controlador();
         }
         return instance;
     }
+    
+    /**
+     * Consulta una farmacia en especifico
+     * @param dto 
+     */
+    public void consultar(DTOFarmacia dto)
+    {
+        dto.setUnaFarmacia(gFarmacia.consulta(dto.getUnaFarmacia().getCodigo()));
+    }
+    
+    /**
+     * Recupera todas las farmacias
+     * @param dto 
+     */
+    public void recuperar(DTOFarmacia dto)
+    {
+        dto.setListaFarmacias(gFarmacia.recuperar());
+    }
+    
+    /**
+     * Registra una farmacia en la bd
+     * @param dto
+     * @return 
+     */
+    public boolean registrarFarmacia(DTOFarmacia dto)
+    {
+        return gFarmacia.registrar(dto.getUnaFarmacia());
+    }
 
-    public DTOProductos getdTOProductos() {
+    public DTOProductos getdTOProductos()
+    {
         return dTOProductos;
     }
     

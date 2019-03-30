@@ -5,7 +5,7 @@
  */
 package controller;
 
-import java.util.ArrayList;
+import java.util.List;
 import model.Farmacia;
 
 /**
@@ -15,7 +15,7 @@ import model.Farmacia;
 public class DTOFarmacia 
 {
     private Farmacia unaFarmacia;
-    private ArrayList listaFarmacias;
+    private List listaFarmacias;
     private String usuario;
     
     public DTOFarmacia()
@@ -26,6 +26,7 @@ public class DTOFarmacia
     public void setUnaFarmacia(Farmacia pFarmacia)
     {
         unaFarmacia = pFarmacia;
+        listaFarmacias = null;
     }
     
     public Farmacia getUnaFarmacia()
@@ -36,14 +37,14 @@ public class DTOFarmacia
     /**
      * @return the listaFarmacias
      */
-    public ArrayList getListaFarmacias() {
+    public List getListaFarmacias() {
         return listaFarmacias;
     }
 
     /**
      * @param listaFarmacias the listaFarmacias to set
      */
-    public void setListaFarmacias(ArrayList listaFarmacias) {
+    public void setListaFarmacias(List listaFarmacias) {
         this.listaFarmacias = listaFarmacias;
     }
 

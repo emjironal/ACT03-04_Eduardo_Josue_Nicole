@@ -368,7 +368,11 @@ public class FrmCatalogos extends javax.swing.JFrame {
 
     private void btnRegistrarFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarFarmaciaActionPerformed
         // TODO add your handling code here:
-
+        int codigo = Integer.parseInt(this.txtCodigoFarmacia.getText());
+        String descripcion = this.txtDescripcionFarmacia.getText();
+        String telefono = this.txtTelefonoFarmacia.getText();
+        dtoFarmacia.getUnaFarmacia().setCodigo(codigo);
+        elCtrl.registrarFarmacia(dtoFarmacia);
     }//GEN-LAST:event_btnRegistrarFarmaciaActionPerformed
 
     private void txtDescripcionFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionFarmaciaActionPerformed

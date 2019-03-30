@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import model.Farmacia;
 
@@ -12,12 +13,13 @@ import model.Farmacia;
  *
  * @author ericka
  */
-public class DAO_Imp_Farmacia implements DAOInterface{
-
+public class DAO_Imp_Farmacia implements DAOInterface
+{
+    private static ArrayList<Farmacia> farmaciasDB = new ArrayList<>();
     @Override
     public boolean registrar(Object obj) {
         Farmacia laFarmacia = (Farmacia) obj;
-        
+        farmaciasDB.add(laFarmacia);
         System.out.println(" aqui se inserta la farmacia en la BD");
         return true;
         
@@ -25,13 +27,37 @@ public class DAO_Imp_Farmacia implements DAOInterface{
     }
 
     @Override
-    public List recuperar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List recuperar()
+    {
+        //Se conecta
+        Conexion dbConexion = Conexion.getInstance();
+        //Hace sus trabajos
+        //Se desconecta
+        dbConexion.desconectar();
+        //Devuelve las farmacias de la db
+        return farmaciasDB;
     }
 
     @Override
-    public Object recuperar(Object clave) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Object recuperar(Object clave)
+    {
+        //Se conecta
+        Conexion dbConexion = Conexion.getInstance();
+        //Hace sus trabajos
+        for(Farmacia farmacia : farmaciasDB)
+        {
+            if(farmacia.getCodigo() == (Integer)clave)
+            {
+                //Se desconecta
+                dbConexion.desconectar();
+                //Devuelve la farmacia de la db
+                return farmacia;
+            }
+        }
+        //Se desconecta
+        dbConexion.desconectar();
+        //Devuelve null
+        return null;
     }
     
 }
